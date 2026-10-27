@@ -1,0 +1,7 @@
+#!/bin/sh
+# Showcase pre-commit hook: refuses secrets, figures, tickers and any file outside the allowlist in what is staged.
+# Installed with: git config core.hooksPath .githooks
+set -e
+ROOT="$(git rev-parse --show-toplevel)"
+cd "$ROOT"
+python3 tools/check.py --staged

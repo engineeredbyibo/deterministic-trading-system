@@ -1,0 +1,7 @@
+#!/bin/sh
+# Showcase pre-push hook: checks every commit being pushed, not just the last one (git passes the refs on stdin).
+# Installed with: git config core.hooksPath .githooks
+set -e
+ROOT="$(git rev-parse --show-toplevel)"
+cd "$ROOT"
+python3 tools/check.py --pre-push
